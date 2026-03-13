@@ -420,6 +420,20 @@ components:
                 For Polygon: array of linear rings, each containing an array of
                 [longitude, latitude] coordinate pairs.
                 In this case, only one exterior ring exists (no holes).
+            crs:
+              type: object
+              nullable: true
+              description: Coordinate Reference System object (optional in GeoJSON)
+              properties:
+                type:
+                  type: string
+                  example: "name"
+                properties:
+                  type: object
+                  properties:
+                    name:
+                      type: string
+                      example: "EPSG:4326"
           example:
             type: Polygon
             coordinates:
