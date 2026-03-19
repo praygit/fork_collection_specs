@@ -476,6 +476,45 @@ components:
           nullable: true
           enum: [OSM]
 
+        geographicPlaceNameSourceDetail:
+          type: object
+          nullable: true
+          properties:
+            sourceUrl:
+              type: string
+              format: url
+              nullable: true
+
+            customGeographicPlace:
+              type: string
+              nullable: true
+
+            selectedGeographicPlace:
+              $ref: '#/components/schemas/SourceAdministrativeLevel'
+
+            higherGeographicPlaces:
+              type: array
+              nullable: true
+              items:
+                $ref: '#/components/schemas/SourceAdministrativeLevel'
+
+            stateProvince:
+              $ref: '#/components/schemas/SourceAdministrativeLevel'
+
+            country:
+              type: object
+              properties:
+                code:
+                  type: string
+                  nullable: true
+                name:
+                  type: string
+                  nullable: true
+
+            recordedOn:
+              type: string
+              format: date-time
+              nullable: true
 
     SiteRelationships:
       type: object
@@ -503,4 +542,15 @@ components:
                     description: Unique identifier of the metadata/attachment
                     example: 8f68a05f-937d-4d40-88b4-ed92720d9c3f
 
-
+    SourceAdministrativeLevel:
+      type: object
+      nullable: true
+      properties:
+        id:
+          type: string
+        element:
+          type: string
+        placeType:
+          type: string
+        name:
+          type: string
