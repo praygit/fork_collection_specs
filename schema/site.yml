@@ -471,6 +471,10 @@ components:
           type: string
           nullable: true
 
+        geographicPlaceNameSource:
+          type: string
+          nullable: true
+          enum: [OSM]
 
 
     SiteRelationships:
@@ -499,4 +503,4 @@ components:
                     description: Unique identifier of the metadata/attachment
                     example: 8f68a05f-937d-4d40-88b4-ed92720d9c3f
 
- 
+
