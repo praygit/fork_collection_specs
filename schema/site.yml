@@ -482,40 +482,38 @@ components:
           properties:
             sourceUrl:
               type: string
-              format: url
               nullable: true
-
+              format: url
+              description: the source's url
             customGeographicPlace:
               type: string
               nullable: true
-
             selectedGeographicPlace:
               $ref: '#/components/schemas/SourceAdministrativeLevel'
-
             higherGeographicPlaces:
-              type: array
               nullable: true
+              type: array
               items:
                 $ref: '#/components/schemas/SourceAdministrativeLevel'
-
             stateProvince:
               $ref: '#/components/schemas/SourceAdministrativeLevel'
-
             country:
               type: object
               properties:
                 code:
-                  type: string
                   nullable: true
+                  type: string
+                  minLength: 2
+                  maxLength: 2 
+                  description: 2 character country code                 
                 name:
-                  type: string
                   nullable: true
-
+                  type: string
             recordedOn:
               type: string
               format: date-time
               nullable: true
-
+              description: The date and time the geographic place name source detail record was recorded on.
     SiteRelationships:
       type: object
       nullable: true
