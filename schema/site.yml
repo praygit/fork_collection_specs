@@ -459,7 +459,61 @@ components:
                   desc:
                     type: string
                     description: the description
+        dwcCountry:
+          type: string
+          nullable: true
 
+        dwcCountryCode:
+          type: string
+          nullable: true
+
+        dwcStateProvince:
+          type: string
+          nullable: true
+
+        geographicPlaceNameSource:
+          type: string
+          nullable: true
+          enum: [OSM]
+
+        geographicPlaceNameSourceDetail:
+          type: object
+          nullable: true
+          properties:
+            sourceUrl:
+              type: string
+              nullable: true
+              format: url
+              description: the source's url
+            customGeographicPlace:
+              type: string
+              nullable: true
+            selectedGeographicPlace:
+              $ref: '#/components/schemas/SourceAdministrativeLevel'
+            higherGeographicPlaces:
+              nullable: true
+              type: array
+              items:
+                $ref: '#/components/schemas/SourceAdministrativeLevel'
+            stateProvince:
+              $ref: '#/components/schemas/SourceAdministrativeLevel'
+            country:
+              type: object
+              properties:
+                code:
+                  nullable: true
+                  type: string
+                  minLength: 2
+                  maxLength: 2 
+                  description: 2 character country code                 
+                name:
+                  nullable: true
+                  type: string
+            recordedOn:
+              type: string
+              format: date-time
+              nullable: true
+              description: The date and time the geographic place name source detail record was recorded on.
     SiteRelationships:
       type: object
       nullable: true
@@ -485,3 +539,16 @@ components:
                     format: uuid
                     description: Unique identifier of the metadata/attachment
                     example: 8f68a05f-937d-4d40-88b4-ed92720d9c3f
+
+    SourceAdministrativeLevel:
+      type: object
+      nullable: true
+      properties:
+        id:
+          type: string
+        element:
+          type: string
+        placeType:
+          type: string
+        name:
+          type: string
