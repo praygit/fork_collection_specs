@@ -434,6 +434,20 @@ components:
                     name:
                       type: string
                       example: "EPSG:4326"
+            crs:
+              type: object
+              nullable: true
+              description: Coordinate Reference System object (optional in GeoJSON)
+              properties:
+                type:
+                  type: string
+                  example: "name"
+                properties:
+                  type: object
+                  properties:
+                    name:
+                      type: string
+                      example: "EPSG:4326"
           example:
             type: Polygon
             coordinates:
@@ -545,6 +559,19 @@ components:
                     format: uuid
                     description: Unique identifier of the metadata/attachment
                     example: 8f68a05f-937d-4d40-88b4-ed92720d9c3f
+
+    SourceAdministrativeLevel:
+      type: object
+      nullable: true
+      properties:
+        id:
+          type: string
+        element:
+          type: string
+        placeType:
+          type: string
+        name:
+          type: string
 
     SourceAdministrativeLevel:
       type: object
