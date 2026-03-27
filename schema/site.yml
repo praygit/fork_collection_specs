@@ -573,15 +573,4 @@ components:
         name:
           type: string
 
-    SourceAdministrativeLevel:
-      type: object
-      nullable: true
-      properties:
-        id:
-          type: string
-        element:
-          type: string
-        placeType:
-          type: string
-        name:
-          type: string
+    
